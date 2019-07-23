@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>info.makarov.s3-plugin</id>
+    <name>S3 Support</name>
+    <vendor email="nik_makarov@yahoo.com" url="http://makarov.info/">Nikita Makarov</vendor>
+    <description>Tool for support and manage S3 buckets/objects by your IDE</description>
+    <depends>com.intellij.modules.lang</depends>
+
+    <application-components>
+        <component>
+            <implementation-class>info.makarov.s3.ApplicationComponent</implementation-class>
+        </component>
+    </application-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="S3 Support" secondary="false" icon="/icons/bucket_13x13.png" anchor="right"
+                    factoryClass="info.makarov.s3.ui.factory.MainWindowFactory"/>
+        <!-- TODO uncomment when ui config is complete -->
+        <!--        <applicationConfigurable groupId="tools" displayName="S3 Support plugin"-->
+        <!--                                 id="preference.S3Configurable"-->
+        <!--                                 instance="info.makarov.s3.ui.config.S3Configurable"/>-->
+        <applicationService serviceInterface="info.makarov.s3.core.service.BucketService"
+                            serviceImplementation="info.makarov.s3.core.service.BucketService"/>
+        <applicationService serviceInterface="info.makarov.s3.core.service.PreferencesService"
+                            serviceImplementation="info.makarov.s3.core.service.PreferencesService"/>
+        <applicationService serviceInterface="info.makarov.s3.core.service.TreeService"
+                            serviceImplementation="info.makarov.s3.core.service.TreeService"/>
+    </extensions>
+
+</idea-plugin>
