@@ -1,20 +1,20 @@
 #### TODO LIST
-- замена блокирующих операций на асинхронные
-- GUI для настроек
-- миграция между профилями (Transfer)
-- синхронизация с локальной директорией
-- добавление файлов
-- удаление файлов
-- переименование
-- загрузка политик
-- создать бакет
-- удалить бакет
-- режим readOnly
-- просмотр информации об объекте
-- просмотр информации о бакете
-- указывать кол-во объектов в бакете/разделе
-- обновление дерева по частям (по префиксу)
-- сделать двойной клик только по листьям дерева
-- добавить статус-бар
-- сохранять последний выбранный профиль
-- сделать ограничение на кол-во объектов + фильтр
+- Replace blocking operations to async
+- Add UI config
+- Add migration between two profiles (Transfer)
+- Add local dir syncronization
+- ~~Add files uploading~~
+- Add files deleting
+- Add renaming
+- Add policy support
+- Add bucket creation
+- Add bucket deleting
+- Add readOnly mode
+- Add object info dialog
+- Add bucket info dialog
+- Add objects counting
+- Add partitioned updates of tree
+- ~~Add double click to object~~
+- Add status bar support for long operations
+- Fix last selected profile saving
+- Add objects limit
