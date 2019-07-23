@@ -12,7 +12,7 @@
 - Add readOnly mode
 - Add object info dialog
 - Add bucket info dialog
-- Add objects counting
+- ~~Add objects counting~~
 - Add partitioned updates of tree
 - ~~Add double click to object~~
 - Add status bar support for long operations

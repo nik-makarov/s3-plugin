@@ -1,5 +1,6 @@
 package info.makarov.s3.core.service;
 
+import info.makarov.s3.core.entity.BucketNodeModel;
 import info.makarov.s3.core.entity.NodeModel;
 import info.makarov.s3.core.entity.preferences.Profile;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +22,9 @@ public class TreeService {
         return root;
     }
 
-    public NodeModel getTreeByBucket(Profile profile, String bucket) {
-        NodeModel node = new NodeModel(bucket, NodeModel.Type.BUCKET);
+    private BucketNodeModel getTreeByBucket(Profile profile, String bucket) {
         List<String> objects = bucketService.getAllKeys(profile, bucket);
+        BucketNodeModel node = new BucketNodeModel(bucket, objects.size());
         group(node, objects, profile.getDelimiter(), "");
         return node;
     }

@@ -1,9 +1,11 @@
 package info.makarov.s3.ui.models;
 
+import info.makarov.s3.core.entity.BucketNodeModel;
 import info.makarov.s3.core.entity.NodeModel;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
+import java.text.MessageFormat;
 
 public class S3TreeNode extends DefaultMutableTreeNode {
 
@@ -51,6 +53,10 @@ public class S3TreeNode extends DefaultMutableTreeNode {
 
     @Override
     public String toString() {
+        if (getUserObject().getType() == NodeModel.Type.BUCKET) {
+            BucketNodeModel bucket = (BucketNodeModel) getUserObject();
+            return MessageFormat.format("{0} ({1} objects)", bucket.getName(), bucket.getObjectsCount());
+        }
         return getUserObject().getName();
     }
 }
