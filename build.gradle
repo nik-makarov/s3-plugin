@@ -18,17 +18,19 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 group 'info.makarov'
-version '0.1.1'
+version '0.2.0'
 
 intellij {
     version '2019.1.1'
 }
 patchPluginXml {
     changeNotes """
-      First release includes:
-        - buckets/objects explorer
-        - objects preview
-        - plain old configuration"""
+      In the release:
+      <ul>
+        <li>objects counting</li>
+        <li>fixed error when default application wasn't found</li>
+      </ul>
+    """
 }
 
 repositories {
