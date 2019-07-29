@@ -18,7 +18,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 group 'info.makarov'
-version '0.2.0'
+version '0.2.1'
 
 intellij {
     version '2019.1.1'
@@ -27,8 +27,7 @@ patchPluginXml {
     changeNotes """
       In the release:
       <ul>
-        <li>objects counting</li>
-        <li>fixed error when default application wasn't found</li>
+        <li>support Intellij Idea 2019.2</li>
       </ul>
     """
 }
