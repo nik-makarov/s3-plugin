@@ -7,6 +7,7 @@
 - Add files deleting
 - Add renaming
 - Add policy support
+- Add lifecycle policy support
 - Add bucket creation
 - Add bucket deleting
 - Add readOnly mode
