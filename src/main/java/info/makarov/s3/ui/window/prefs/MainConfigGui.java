@@ -1,4 +1,4 @@
-package info.makarov.s3.ui.window;
+package info.makarov.s3.ui.window.prefs;
 
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.ui.CollectionListModel;

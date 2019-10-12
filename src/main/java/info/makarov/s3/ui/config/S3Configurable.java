@@ -2,7 +2,7 @@ package info.makarov.s3.ui.config;
 
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
-import info.makarov.s3.ui.window.MainConfigGui;
+import info.makarov.s3.ui.window.prefs.MainConfigGui;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

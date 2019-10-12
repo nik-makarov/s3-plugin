@@ -18,19 +18,16 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 group 'info.makarov'
-version '0.2.1'
+version '0.3.0'
 
-intellij {
-    version '2019.1.1'
-}
-patchPluginXml {
-    changeNotes """
-      In the release:
-      <ul>
-        <li>support Intellij Idea 2019.2</li>
-      </ul>
-    """
-}
+//patchPluginXml {
+//    changeNotes """
+//      In the release:
+//      <ul>
+//        <li>support Intellij Idea 2019.2</li>
+//      </ul>
+//    """
+//}
 
 repositories {
     mavenCentral()
@@ -41,7 +38,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'org.slf4j:slf4j-simple:1.7.12'
     // aws
-    implementation platform('software.amazon.awssdk:bom:2.5.29')
+    implementation platform('software.amazon.awssdk:bom:2.9.9')
     implementation 'software.amazon.awssdk:kinesis'
     compile group: 'software.amazon.awssdk', name: 's3'
 

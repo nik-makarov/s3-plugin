@@ -1,34 +1,33 @@
 package info.makarov.s3.ui.models;
 
-import info.makarov.s3.core.entity.BucketNodeModel;
-import info.makarov.s3.core.entity.NodeModel;
+import info.makarov.s3.core.lazy.LazyNode;
+import info.makarov.s3.ui.adapter.LazyNodeAdapter;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
-import java.text.MessageFormat;
 
 public class S3TreeNode extends DefaultMutableTreeNode {
 
-    public S3TreeNode(NodeModel node) {
+    public S3TreeNode(LazyNodeAdapter node) {
         super(node, true);
     }
 
-    public S3TreeNode(NodeModel node, boolean allowChildren) {
+    public S3TreeNode(LazyNodeAdapter node, boolean allowChildren) {
         super(node, allowChildren);
     }
 
-    public void setUserObject(NodeModel userObject) {
+    public void setUserObject(LazyNodeAdapter userObject) {
         super.setUserObject(userObject);
     }
 
     @Override
-    public NodeModel getUserObject() {
-        return (NodeModel) super.getUserObject();
+    public LazyNodeAdapter getUserObject() {
+        return (LazyNodeAdapter) super.getUserObject();
     }
 
     @Override
-    public NodeModel[] getUserObjectPath() {
-        return (NodeModel[]) super.getUserObjectPath();
+    public LazyNodeAdapter[] getUserObjectPath() {
+        return (LazyNodeAdapter[]) super.getUserObjectPath();
     }
 
     @Override
@@ -52,11 +51,17 @@ public class S3TreeNode extends DefaultMutableTreeNode {
     }
 
     @Override
+    public boolean isLeaf() {
+        return getUserObject().getType() == LazyNode.Type.LEAF;
+    }
+
+    @Override
+    public S3TreeNode getParent() {
+        return (S3TreeNode) super.getParent();
+    }
+
+    @Override
     public String toString() {
-        if (getUserObject().getType() == NodeModel.Type.BUCKET) {
-            BucketNodeModel bucket = (BucketNodeModel) getUserObject();
-            return MessageFormat.format("{0} ({1} objects)", bucket.getName(), bucket.getObjectsCount());
-        }
-        return getUserObject().getName();
+        return getUserObject().getTitle();
     }
 }

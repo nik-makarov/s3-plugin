@@ -49,6 +49,18 @@ public class BucketService {
         return Collections.unmodifiableList(result);
     }
 
+    public ListObjectsV2Response getObjects(Profile profile, String bucket, String prefix, String token, int limit) {
+        S3Client s3Client = S3ClientFactory.create(profile);
+        ListObjectsV2Request request = ListObjectsV2Request.builder()
+                    .bucket(bucket)
+                    .prefix(prefix)
+                    .delimiter(profile.getDelimiter())
+                    .continuationToken(token)
+                    .maxKeys(limit)
+                    .build();
+        return s3Client.listObjectsV2(request);
+    }
+
     public List<String> getAllKeys(Profile profile, String bucket) {
         return getAllObjects(profile, bucket).stream()
                 .map(S3Object::key)

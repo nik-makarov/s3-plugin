@@ -18,4 +18,4 @@
 - ~~Add double click to object~~
 - Add status bar support for long operations
 - Fix last selected profile saving
-- Add objects limit
+- ~~Add objects limit~~
