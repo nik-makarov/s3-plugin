@@ -5,6 +5,7 @@ import info.makarov.s3.core.entity.preferences.Profile;
 import info.makarov.s3.ui.adapter.LazyNodeAdapter;
 import info.makarov.s3.ui.adapter.LazyNodeAdapterType;
 import info.makarov.s3.ui.adapter.LazyTreeAdapter;
+import info.makarov.s3.ui.dialog.DialogUtils;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -27,16 +28,15 @@ public class ContextMenuItemsFactory {
     }
 
     private List<JMenuItem> createObjectMenuItems(LazyNodeAdapter nodeAdapter, Profile profile, LazyTreeAdapter treeAdapter) {
-        JMenuItem preview = new JMenuItem("Preview");
-        preview.setAction(new OnContextMenuItemClick("Preview", nodeAdapter) {
+        JMenuItem preview = new JMenuItem(new OnContextMenuItemClick("Preview", nodeAdapter) {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nodeAdapter.onPreviewClick(profile, treeAdapter);
             }
         });
-        JMenuItem download = new JMenuItem("Download to...");
-        JMenuItem copyObjectName = new JMenuItem("Copy object name");
-        JMenuItem delete = new JMenuItem("Delete...");
+        JMenuItem download = new JMenuItem(new NotImplementedAction("Download to..."));
+        JMenuItem copyObjectName = new JMenuItem(new NotImplementedAction("Copy object name"));
+        JMenuItem delete = new JMenuItem(new NotImplementedAction("Delete..."));
 
         return Lists.newArrayList(preview, download, copyObjectName, delete);
     }
@@ -51,6 +51,18 @@ public class ContextMenuItemsFactory {
         @Getter
         private final LazyNodeAdapter lazyNodeAdapter;
 
+    }
+
+    final static class NotImplementedAction extends AbstractAction {
+
+        private NotImplementedAction(String name) {
+            super(name);
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DialogUtils.showNotImplemented();
+        }
     }
 
 }

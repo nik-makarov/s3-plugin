@@ -20,15 +20,6 @@ apply plugin: 'idea'
 group 'info.makarov'
 version '0.3.0'
 
-//patchPluginXml {
-//    changeNotes """
-//      In the release:
-//      <ul>
-//        <li>support Intellij Idea 2019.2</li>
-//      </ul>
-//    """
-//}
-
 repositories {
     mavenCentral()
 }
