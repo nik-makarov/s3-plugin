@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class LazyTreeService {
 
-    private static final int CHILDREN_LOAD_LIMIT = 3;
+    private static final int CHILDREN_LOAD_LIMIT = 5000;
 
     private final BucketService bucketService;
 

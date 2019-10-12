@@ -3,9 +3,7 @@
     <name>S3 Support</name>
     <vendor email="nik_makarov@yahoo.com" url="http://makarov.info/">Nikita Makarov</vendor>
     <description>Tool for support and manage S3 buckets/objects by your IDE</description>
-    <change-notes>Pagination support + bug fixes + supported range changed</change-notes>
     <depends>com.intellij.modules.lang</depends>
-    <idea-version since-build="162.*"/>
     <application-components>
         <component>
             <implementation-class>info.makarov.s3.ApplicationComponent</implementation-class>
