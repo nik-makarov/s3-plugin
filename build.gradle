@@ -18,10 +18,10 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 group 'info.makarov'
-version '0.3.1'
+version '0.3.2'
 
 intellij {
-    version '2019.2'
+    version '2020.1'
 }
 patchPluginXml {
     changeNotes """
