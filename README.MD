@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nik-makarov/s3-plugin.svg?branch=master)](https://travis-ci.org/nik-makarov/s3-plugin)
+
 #### TODO LIST
 - Replace blocking operations to async
 - Add UI config
