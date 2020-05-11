@@ -4,9 +4,12 @@ import info.makarov.s3.core.entity.preferences.Profile;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.core.sync.ResponseTransformer;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.apache.ApacheHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.utils.AttributeMap;
 
 import java.io.File;
 import java.io.InputStream;
@@ -15,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static software.amazon.awssdk.http.SdkHttpConfigurationOption.TRUST_ALL_CERTIFICATES;
 
 public class BucketService {
 
@@ -97,7 +102,13 @@ public class BucketService {
                             profile.getCredentials().getSecretKey()
                     ))
                     .endpointOverride(URI.create(profile.getEndpoint()))
+                    .httpClient(createHttpClient(!profile.isUseHttps()))
                     .build();
+        }
+
+        private static SdkHttpClient createHttpClient(boolean trustAll) {
+            AttributeMap attributes = AttributeMap.builder().put(TRUST_ALL_CERTIFICATES, trustAll).build();
+            return ApacheHttpClient.builder().buildWithDefaults(attributes);
         }
 
     }
