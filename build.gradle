@@ -11,7 +11,6 @@ buildscript {
 
 plugins {
     id 'org.jetbrains.intellij' version '0.4.9'
-    id "io.freefair.lombok" version "3.8.0"
 }
 
 apply plugin: 'java'
@@ -45,6 +44,11 @@ dependencies {
     implementation platform('software.amazon.awssdk:bom:2.9.9')
     implementation 'software.amazon.awssdk:kinesis'
     compile group: 'software.amazon.awssdk', name: 's3'
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     testImplementation group: 'junit', name: 'junit', version: '4.11'
 }
