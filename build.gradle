@@ -17,7 +17,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 group 'info.makarov'
-version '0.3.2'
+version '0.3.3'
 
 intellij {
     version '2020.1'
